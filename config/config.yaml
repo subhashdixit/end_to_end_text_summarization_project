@@ -1,0 +1,38 @@
+# Configuration file for the Text Summarizer project
+# This file contains paths and settings for data ingestion, validation, transformation,
+# model training, and evaluation.
+
+artifacts_root: artifacts  # Root directory for all artifacts produced by the project
+
+# Data Ingestion Configuration
+data_ingestion:
+  root_dir: artifacts/data_ingestion  # Directory where ingested data will be stored
+  source_URL: https://github.com/subhashdixit/end_to_end_text_summarization_project/raw/main/summarizer-data.zip  # URL to download the source data
+  local_data_file: artifacts/data_ingestion/data.zip  # Path to save the downloaded zip file
+  unzip_dir: artifacts/data_ingestion  # Directory where the zip file will be extracted
+
+# Data Validation Configuration
+data_validation:
+  root_dir: artifacts/data_validation  # Directory where data validation results will be stored
+  STATUS_FILE: artifacts/data_validation/status.txt  # Path to the file where the validation status will be recorded
+  ALL_REQUIRED_FILES: ["train", "test", "validation"]  # List of required files to check in the validation
+
+# Data Transformation Configuration
+data_transformation:
+  root_dir: artifacts/data_transformation  # Directory where transformed data will be stored
+  data_path: artifacts/data_ingestion/samsum_dataset  # Path to the dataset that needs to be transformed
+  tokenizer_name: google/pegasus-cnn_dailymail  # Pre-trained tokenizer to use for data transformation
+
+# Model Trainer Configuration
+model_trainer:
+  root_dir: artifacts/model_trainer  # Directory where trained model artifacts will be stored
+  data_path: artifacts/data_transformation/samsum_dataset  # Path to the transformed dataset used for training
+  model_ckpt: google/pegasus-cnn_dailymail  # Pre-trained model checkpoint to use for fine-tuning
+
+# Model Evaluation Configuration
+model_evaluation:
+  root_dir: artifacts/model_evaluation  # Directory where evaluation results will be stored
+  data_path: artifacts/data_transformation/samsum_dataset  # Path to the transformed dataset used for evaluation
+  model_path: artifacts/model_trainer/pegasus-samsum-model  # Path to the saved trained model
+  tokenizer_path: artifacts/model_trainer/tokenizer  # Path to the saved tokenizer
+  metric_file_name: artifacts/model_evaluation/metrics.csv  # Path to the file where evaluation metrics will be saved
