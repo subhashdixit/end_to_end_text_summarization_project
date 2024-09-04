@@ -11,3 +11,7 @@
 7. Update the main.py
 8. Update the app.py
 ```
+### Install Pytorch using below command in local
+- https://pytorch.org/get-started/locally/
+- Command: pip3 install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118
+- https://visualstudio.microsoft.com/vs/features/cplusplus/ - Install visuall studio c++ as well
