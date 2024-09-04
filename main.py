@@ -22,7 +22,7 @@ from text_summarizer.logging import logger
 #    data_validation = DataValidationTrainingPipeline()
 #    data_validation.main()
 #    logger.info(f">>>>>> stage {STAGE_NAME} completed <<<<<<\n\nx==========x")
-# except Exception as e:
+# except Exception as e: 
 #         logger.exception(e)
 #         raise e
 
